@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "cypress": "^12.17.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7"
   }
 }
