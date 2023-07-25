@@ -16,15 +16,12 @@ describe('Automate EMI Calculator', () => {
     cy.selectStartingMonth("Aug")
 
     cy.get("div#emibarchart").should('be.visible') 
-    
-    cy.wait(3000)
-    cy.get("div#emibarchart g.highcharts-series-group > g.highcharts-markers").find("path.highcharts-point").each(($elem, $index, $list) => {
-        const count = $list.length
-        if($index == 2){
-            cy.log(count)
-            cy.wrap($elem).scrollIntoView().trigger('mouseover')
-            cy.wait(2000)
-        }
+    cy.get("div#emibarchart g.highcharts-series-group > g.highcharts-series-0").find("rect.highcharts-point").as("orange-bar")
+    cy.get("@orange-bar").should("have.length", 6)
+    cy.get("@orange-bar").eq(2).trigger("mouseover")
+    cy.get("div#emibarchart g.highcharts-tooltip").find("text > tspan").each($elem => {
+        let text = $elem.text()
+        cy.log(text)
     })
 
   })
