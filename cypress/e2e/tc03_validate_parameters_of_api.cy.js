@@ -2,7 +2,6 @@ describe('Automate API Test', () => {
     it('Validate the parameters of API', () => {
       cy.fixture('users.json').then((users) => {
         // Load user data from the fixture
-        cy.log(users)
   
         cy.request('GET', "https://reqres.in/api/users?page=2")
           .then((response) => {
