@@ -5,7 +5,7 @@ export function calculateEmi(P, R, N) {
     return Math.ceil(emi)
 };
 
-export function getNumber(pstring){
+export function getPercantage(pstring){
     pstring.replace("%", "")
     return parseFloat(pstring, 10)
 }

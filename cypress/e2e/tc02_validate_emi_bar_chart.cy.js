@@ -13,12 +13,20 @@ describe('Automate EMI Calculator', () => {
     cy.moveSlider(12, 0.25, "loaninterest")
     cy.moveSlider(5,0.25, "loanterm")
 
+    // Select one month from calender 
     cy.selectStartingMonth("Aug")
 
+    // Check availability of bar chart
     cy.get("div#emibarchart").should('be.visible') 
+
+    // Count number of bars available
     cy.get("div#emibarchart g.highcharts-series-group > g.highcharts-series-0").find("rect.highcharts-point").as("orange-bar")
     cy.get("@orange-bar").should("have.length", 6)
+
+    
+    // Read the values from any one bar tool tip 
     cy.get("@orange-bar").eq(2).trigger("mouseover")
+
     cy.get("div#emibarchart g.highcharts-tooltip").find("text > tspan").each($elem => {
         let text = $elem.text()
         cy.log(text)
