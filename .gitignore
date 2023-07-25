@@ -1,0 +1,12 @@
+# Cypress generated files
+/cypress/videos/
+/cypress/screenshots/
+
+# Cypress binary cache
+/.cache/
+
+# Cypress test files
+/cypress/integration/
+
+# Node modules used by Cypress
+/node_modules/
