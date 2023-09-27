@@ -1,4 +1,4 @@
-# apollo-take-home-test-divyesh
+# emi calculator cypress
 **Prerequisite**
 * install Node.js
 * install npm or yarn (node package manager)
